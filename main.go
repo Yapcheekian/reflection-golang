@@ -1,21 +1,26 @@
 package main
 
 import (
-	"time"
+	"fmt"
+	"reflect"
 )
 
 func main() {
-	// t := reflect.TypeOf(3)  // a reflect.Type
+	t := reflect.TypeOf(3) // a reflect.Type
 	// fmt.Println(t.String()) // "int"
 	// fmt.Println(t)          // "int"
+	fmt.Println(t.Kind())
+	t.Field(1)
 
 	// var w io.Writer = os.Stdout
 	// fmt.Println(reflect.TypeOf(w)) // "*os.File"
 
-	// v := reflect.ValueOf(3) // a reflect.Value
+	v := reflect.ValueOf(3) // a reflect.Value
 	// fmt.Println(v)          // "3"
 	// fmt.Printf("%v\n", v)   // "3"
 	// fmt.Println(v.String()) // NOTE: "<int Value>"
+	fmt.Println(v.Kind())
+	v.Field(1)
 
 	// t = v.Type()            // a reflect.Type
 	// fmt.Println(t.String()) // "int"
@@ -98,7 +103,7 @@ func main() {
 	// ry.SetString("hello")            // panic: SetString called on interface Value
 	// ry.Set(reflect.ValueOf("hello")) // OK, y = "hello"
 
-	Methods(time.Hour)
+	// Methods(time.Hour)
 }
 
 type Movie struct {
